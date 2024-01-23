@@ -1,0 +1,114 @@
+$color-main: #1c524f;
+$color-white: #ffffff;
+$color-black: #222222;
+$color-blue: #b4cce8;
+$color-red: #f04d37;
+$color-blue: #b4cce8;
+
+
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	color: $color-white;
+	background-color: $color-main;
+	background-image: url(./assets/bg.svg);
+	background-position: center;
+	background-size: cover;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 4.0rem;
+	text-align: center;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	place-items: center;
+	min-width: 320px;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+h1 {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+#the-logo {
+	width: 100%;
+	aspect-ratio: 16 / 1.96;
+	display: flex;
+	justify-content: flex-start;
+	position: relative;
+	perspective: 1000px;
+
+	svg {
+		width: 100%;
+		height: auto;
+		display: block;
+		position: relative;
+		overflow: visible;
+
+		.evermade-path {
+			fill: #fff;
+		}
+	}
+
+	#logo_one {
+		width: 12.8%;
+		margin-left: -0.2%;
+	}
+
+	#logo_two {
+		width: 11.7%;
+		margin-left: -1.0%;
+	}
+
+	#logo_three {
+		width: 12.8%;
+		margin-left: -0.5%;
+	}
+
+	#logo_four {
+		width: 10.5%;
+		margin-left: 1.1%;
+	}
+
+	#logo_five {
+		width: 13.2%;
+		margin-left: 1.7%;
+	}
+
+	#logo_six {
+		width: 11.7%;
+		margin-left: 1.1%;
+		
+	}
+
+	#logo_seven {
+		width: 11.0%;
+		margin-left: 1.1%;
+	}
+
+	#logo_eight {
+		width: 12.8%;
+		margin-left: 0.5%;
+		
+	}
+}
