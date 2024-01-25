@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     svgr(),
   ],
-  base: '/em-animation/',
+  base: '/em-animation/dist',
 })
