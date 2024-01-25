@@ -53,7 +53,10 @@ const TheLogo = () => {
 
         // THE MAIN TIMELINE
         const timeline = gsap.timeline({
-            onComplete: () => console.log("complete"),
+            onComplete: () => {
+                console.log("complete")
+                finalJumpTimeline()
+            }
         });
 
 
@@ -66,10 +69,12 @@ const TheLogo = () => {
             tl.set(letter, { duration: 0, scaleX: 0, scaleY: 0, rotation: -30 }, "+=0.0")
 
             // Balloon inflation effect
-            tl.to(letter, { duration: 1.4, scaleX: 1, scaleY: 1, ease: "elastic.out(0.2, 0.13)" }, "+=5.4");
+            tl.to(letter, { 
+                duration: 1.4, scaleX: 1, scaleY: 1, ease: "elastic.out(0.2, 0.13)"
+            }, "+=5.0");
             tl.to(letter, { duration: 1.4, rotation: 20 }, "-=1.2");
             tl.to(letter, { duration: 1.6, rotation: -8 }, "-=1.0");
-            tl.to(letter, { duration: 2.2, rotation: 0 }, "-=1.0");
+            tl.to(letter, { duration: 2.2, rotation: 0  }, "-=1.0");
 
             return tl;
         }
@@ -83,15 +88,15 @@ const TheLogo = () => {
             tl.set(letter, { duration: 0, x: alluUnitX(-400), rotation: 160 }, "-=0.1")
 
             // Slide from side
-            tl.to(letter, { duration: 1.2, x: "13%" }, "-=0.1");
-            tl.to(letter, { duration: 0.7, rotation: 205 }, "-=1.4");
+            tl.to(letter, { duration: 1.2,  x: "13%"      }, "-=0.1");
+            tl.to(letter, { duration: 0.7,  rotation: 205 }, "-=1.4");
             tl.to(letter, { duration: 0.22, rotation: 180 }, "+=0.1");
-            tl.to(letter, { duration: 0.3, x: 0 }, "-=0.2");
+            tl.to(letter, { duration: 0.3,  x: 0          }, "-=0.2");
 
             // Bounce effect
             tl.to(letter, { duration: 0.4, y: alluUnitY(-25), ease: "power2.out" }, "+=1.1");
-            tl.to(letter, { duration: 0.4, y: 0,   ease: "power2.in"  }, "+=0.0");
-            tl.to(letter, { duration: 0.7, rotation: 0, ease: "power2.out"  }, "-=0.7");
+            tl.to(letter, { duration: 0.4, y: 0,              ease: "power2.in"  }, "+=0.0");
+            tl.to(letter, { duration: 0.7, rotation: 0,       ease: "power2.out" }, "-=0.7");
             tl.to(letter, { duration: 0.2, scaleY: 0.9, y: 7, ease: "power1.out" }, "-=0.0");
             tl.to(letter, { duration: 0.2, scaleY: 1.0, y: 0, ease: "power1.out" }, "-=0.0");
 
@@ -107,7 +112,6 @@ const TheLogo = () => {
 
             // Slide from side
             tl.to(letter, { duration: 2.8, x: 0 });
-            // tl.from(letter, { duration: 2.8, x: alluUnitX(-300) }, "0.1");
             tl.from(letter, { duration: 2.8, rotation: "-480" } , "-=2.8");
 
             return tl;
@@ -146,20 +150,20 @@ const TheLogo = () => {
             });
 
             // Dropdown
-            tl.fromTo(letter, { y: alluUnitY(-160) }, { duration: 1.1, y: "0", ease: "power3.in" } , "-=0.0");
-            tl.to(letter, { duration: 0.6, y: alluUnitY(-35) } , "+=0.15");
-            tl.to(letter, { duration: 0.6, y: "0", ease: "power2.in" } , "-=0.15");
-            tl.to(letter, { duration: 0.4, y: alluUnitY(-8) } , "+=0.15");
-            tl.to(letter, { duration: 0.4, y: "0", ease: "power2.in" } , "-=0.2");
+            tl.fromTo(letter, { y: alluUnitY(-160) }, { duration: 1.1, y: "0", ease: "power3.in" }, "-=0.0");
+            tl.to(letter, { duration: 0.6, y: alluUnitY(-35)         }, "+=0.15");
+            tl.to(letter, { duration: 0.6, y: "0", ease: "power2.in" }, "-=0.15");
+            tl.to(letter, { duration: 0.4, y: alluUnitY(-8)          }, "+=0.15");
+            tl.to(letter, { duration: 0.4, y: "0", ease: "power2.in" }, "-=0.2");
 
             // Bouncy scaling effect
-            tl.to(letter, { duration: 0.25, scaleX: 1.30, scaleY: 0.70 } , "1.1");
-            tl.to(letter, { duration: 0.20, scaleX: 0.95, scaleY: 1.10 } , "1.25");
-            tl.to(letter, { duration: 1.60, scaleX: 1.00, scaleY: 1.00 } , "1.30");
-            tl.to(letter, { duration: 0.25, scaleX: 1.10, scaleY: 0.90 } , "2.30");
-            tl.to(letter, { duration: 0.25, scaleX: 1.00, scaleY: 1.00 } , "2.40");
-            tl.to(letter, { duration: 0.25, scaleX: 1.00, scaleY: 0.96 } , "3.05");
-            tl.to(letter, { duration: 0.25, scaleX: 1.00, scaleY: 1.00 } , "3.20");
+            tl.to(letter, { duration: 0.25, scaleX: 1.30, scaleY: 0.70 }, "1.1");
+            tl.to(letter, { duration: 0.20, scaleX: 0.95, scaleY: 1.10 }, "1.25");
+            tl.to(letter, { duration: 1.60, scaleX: 1.00, scaleY: 1.00 }, "1.30");
+            tl.to(letter, { duration: 0.25, scaleX: 1.10, scaleY: 0.90 }, "2.30");
+            tl.to(letter, { duration: 0.25, scaleX: 1.00, scaleY: 1.00 }, "2.40");
+            tl.to(letter, { duration: 0.25, scaleX: 1.00, scaleY: 0.96 }, "3.05");
+            tl.to(letter, { duration: 0.25, scaleX: 1.00, scaleY: 1.00 }, "3.20");
 
             return tl;
         }
@@ -173,7 +177,9 @@ const TheLogo = () => {
 
             // Spinning effect
             tl.from(letter, { duration: 0.2, autoAlpha: 0 } , "=0.0")
-            tl.fromTo(letter, { rotationY: "0" }, { duration: 5.0, rotationY: "-1080" }, "-=0.2");
+            tl.fromTo(letter, { rotationY: "0" }, {
+                duration: 5.0, rotationY: "-1080"
+            }, "-=0.2");
             tl.fromTo(letter, { rotation: 180 }, {
                 duration: 1.0, rotation: 0, ease: "back.out(1.7)"
             } , "-=4.2")
@@ -213,7 +219,7 @@ const TheLogo = () => {
             tl.to(letter,{ duration: 0.20, scaleY: 1.05, rotation: "-20" }, "1.95");
             tl.to(letter,{ duration: 0.45, scaleY: 0.95, rotation: "30"  }, "2.15");
             tl.to(letter,{ duration: 0.50, scaleY: 1.03, rotation: "-10" }, "2.60");
-            tl.to(letter,{ duration: 0.30, scaleY: 1.00, rotation: "0"  }, "3.30");
+            tl.to(letter,{ duration: 0.30, scaleY: 1.00, rotation: "0"   }, "3.30");
 
             return tl;
         }
@@ -233,7 +239,7 @@ const TheLogo = () => {
             // Look left and right
             tl.to(letter, { duration: 0.4, rotationY: "-20" }, "-=0.0");
             tl.to(letter, { duration: 0.4, rotationY: "20"  }, "-=0.1");
-            tl.to(letter, { duration: 0.4, rotationY: "0"  }, "-=0.0");
+            tl.to(letter, { duration: 0.4, rotationY: "0"   }, "-=0.0");
 
             // Retreat slightly back to side
             tl.to(letter, 
@@ -285,19 +291,45 @@ const TheLogo = () => {
         timeline.add(evermade01Timeline("#logo_one"), "0.0");
         timeline.play(0);
 
+
+
+        // Final jump timeline
+        const finalJumpTimeline = () => {
+            const theTimeline = gsap.timeline({
+                defaults: { transformOrigin: "50% 100%" },
+                onComplete: () => console.log("secondary complete"),
+            });
+
+            // Jump effect
+            theTimeline.to(".logo-letter", {
+                duration: 0.3, y: alluUnitY(-15), scaleY: 1.15, stagger: 0.075, ease: "power2.out"
+            }, "+=0.0");
+            theTimeline.to(".logo-letter", {
+                duration: 0.3, y: 0, scaleY: 1.0, stagger: 0.075, ease: "power2.in"
+            }, "-=0.5");
+
+            // Landing bounce effect
+            theTimeline.to(".logo-letter", {
+                duration: 0.2, scaleY: 0.9, stagger: 0.075, ease: "power2.out"
+            }, "-=0.55");
+            theTimeline.to(".logo-letter", {
+                duration: 0.2, scaleY: 1, stagger: 0.075, ease: "power2.out"
+            }, "-=0.55");
+        }
+
     }, { scope: the_logo });
 
 
     return (
         <div ref={the_logo} id="the-logo">
-            <Logo_E id="logo_one" />
-            <Logo_V id="logo_two" />
-            <Logo_E id="logo_three" />
-            <Logo_R id="logo_four" />
-            <Logo_M id="logo_five" />
-            <Logo_A id="logo_six" />
-            <Logo_D id="logo_seven" />
-            <Logo_E id="logo_eight" />
+            <Logo_E className="logo-letter" id="logo_one" />
+            <Logo_V className="logo-letter" id="logo_two" />
+            <Logo_E className="logo-letter" id="logo_three" />
+            <Logo_R className="logo-letter" id="logo_four" />
+            <Logo_M className="logo-letter" id="logo_five" />
+            <Logo_A className="logo-letter" id="logo_six" />
+            <Logo_D className="logo-letter" id="logo_seven" />
+            <Logo_E className="logo-letter" id="logo_eight" />
         </div>
     )
 }
