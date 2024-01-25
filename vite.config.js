@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     svgr(),
   ],
-  base: 'https://allu1991.github.io/em-animation/',
+  base: '/em-animation/',
 })
