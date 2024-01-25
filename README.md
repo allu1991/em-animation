@@ -1,8 +1,25 @@
-# React + Vite
+# Evermade animation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Just some [GSAP](https://gsap.com/) animation experimentation. Bootstrapped with a minimal Vite setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Setup
+1. Download [Node.js](https://nodejs.org/en/download/).
+2. Clone this Git repository
+3. Run the following commands
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+**Install dependencies (only the first time)**
+`npm install`
+
+**Run the local server (by default at localhost:8080)**
+`npx vite` or `npm run dev`
+
+**Build for production in the dist/ directory**
+`npx vite build`
+
+**Deploy to Github pages using [gh-pages](https://www.npmjs.com/package/gh-pages) package**
+`gh-pages -d dist`
+
+## Demo
+
+Working demo » [Evermade animation](https://allu1991.github.io/em-animation/ )
