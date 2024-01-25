@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Logo_E from './assets/logo-e.svg?react';
@@ -12,6 +12,9 @@ const TheLogo = () => {
 
     // Define the logo element reference for GSAP
     const the_logo = useRef();
+
+    // Define the interactivity state for logo
+    const [ lettersInteractive, setLettersInteractive ] = useState(false)
 
     useGSAP(() => {
 
@@ -297,7 +300,10 @@ const TheLogo = () => {
         const finalJumpTimeline = () => {
             const theTimeline = gsap.timeline({
                 defaults: { transformOrigin: "50% 100%" },
-                onComplete: () => console.log("secondary complete"),
+                onComplete: () => {
+                    console.log("finalJumpTimeline complete")
+                    setLettersInteractive(true)
+                },
             });
 
             // Jump effect
@@ -320,16 +326,50 @@ const TheLogo = () => {
     }, { scope: the_logo });
 
 
+
+
+    // Remove letter with animation on letter click
+    const removeFromScene = (e, direction) => {
+
+        const letter = e.target;
+
+        if (lettersInteractive) {
+
+            const tl = gsap.timeline({ defaults: { transformOrigin: "50% 50%" } });
+
+            tl.set(letter, { duration: 0, x: 0, y: 0, rotation: 0 }, "-=0.0")
+            
+            // Jump effect
+            tl.to(letter, { duration: 0.5, y: "-35vh", ease: "power2.out" }, "-=0.0")
+            tl.to(letter, { duration: 0.5, y: "50vh",  ease: "power2.in" }, "-=0.05")
+
+            // Move to side and rotate. Change direction based on "direction" parameter
+            if (direction === "left") {
+                tl.to(letter, { duration: 1.2, x: "-30vw", rotation: 500, ease: "power1.out" }, "-=0.95")
+            } else {
+                tl.to(letter, { duration: 1.2, x: "30vw", rotation: 500, ease: "power1.out" }, "-=0.95")
+            }
+
+            // Hide letter with auto alpha
+            tl.to(letter, { duration: 0.25, autoAlpha: 0 }, "-=0.4")
+
+            return tl;
+        }
+    }
+
+    // Define the interactivity class
+    const interactivity = lettersInteractive ? "interactive" : "";
+
     return (
         <div ref={the_logo} id="the-logo">
-            <Logo_E className="logo-letter" id="logo_one" />
-            <Logo_V className="logo-letter" id="logo_two" />
-            <Logo_E className="logo-letter" id="logo_three" />
-            <Logo_R className="logo-letter" id="logo_four" />
-            <Logo_M className="logo-letter" id="logo_five" />
-            <Logo_A className="logo-letter" id="logo_six" />
-            <Logo_D className="logo-letter" id="logo_seven" />
-            <Logo_E className="logo-letter" id="logo_eight" />
+            <Logo_E className={`logo-letter ${interactivity}`} id="logo_one"   onClick={(e) => removeFromScene(e, "right")} />
+            <Logo_V className={`logo-letter ${interactivity}`} id="logo_two"   onClick={(e) => removeFromScene(e, "left")}  />
+            <Logo_E className={`logo-letter ${interactivity}`} id="logo_three" onClick={(e) => removeFromScene(e, "right")} />
+            <Logo_R className={`logo-letter ${interactivity}`} id="logo_four"  onClick={(e) => removeFromScene(e, "left")}  />
+            <Logo_M className={`logo-letter ${interactivity}`} id="logo_five"  onClick={(e) => removeFromScene(e, "right")} />
+            <Logo_A className={`logo-letter ${interactivity}`} id="logo_six"   onClick={(e) => removeFromScene(e, "left")}  />
+            <Logo_D className={`logo-letter ${interactivity}`} id="logo_seven" onClick={(e) => removeFromScene(e, "right")} />
+            <Logo_E className={`logo-letter ${interactivity}`} id="logo_eight" onClick={(e) => removeFromScene(e, "left")}  />
         </div>
     )
 }

@@ -65,8 +65,29 @@ h1 {
 		position: relative;
 		overflow: visible;
 
+		path {
+			// Prevent clicking of the svg path for proper targeting for click event
+			pointer-events: none;
+		}
+
 		.evermade-path {
 			fill: #fff;
+		}
+
+		// Make element have hover effect when made interactive
+		&.interactive {
+			cursor: pointer;
+
+			path {
+				transform-origin: 50% 100%;
+				transition: transform 0.15s;
+			}
+			
+			&:hover {
+				path {
+					transform: scale(0.9, 1.1);
+				}
+			}
 		}
 	}
 
