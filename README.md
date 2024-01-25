@@ -3,9 +3,8 @@
 Just some [GSAP](https://gsap.com/) animation experimentation. Bootstrapped with a minimal Vite setup to get React working in Vite with HMR and some ESLint rules.
 
 ## Setup
-1. Download [Node.js](https://nodejs.org/en/download/).
-2. Clone this Git repository
-3. Run the following commands
+
+Run the following commands
 
 
 **Install dependencies (only the first time)**
